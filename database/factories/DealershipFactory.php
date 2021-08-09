@@ -23,13 +23,27 @@ class DealershipFactory extends Factory
     {
         return [
             'name' => $this->faker->company(),
-            'address' => $this->faker->address(),
+            'address1' => $this->faker->streetAddress(),
+            'address2' => $this->faker->streetSuffix(),
             'city' => $this->faker->city(),
-            'state' => $this->faker->locale(),
+            'state' => $this->faker->lexify('??'),
             'zip' => $this->faker->postcode(),
-            'timezone' => $this->faker->timezone(),
+            'phone' => $this->faker->phoneNumber(),
+            'sales_phone' => $this->faker->phoneNumber(),
+            'fax' => $this->faker->phoneNumber(),
             'website' => $this->faker->url(),
-            'phone' => $this->faker->phoneNumber()
+            'timezone' => $this->faker->randomElement([
+                'UTC-04:00 Atlantic',
+                'UTC-05:00 Eastern',
+                'UTC-06:00 Central',
+                'UTC-07:00 Mountain',
+                'UTC-08:00 Pacific',
+                'UTC-09:00 Alaska',
+                'UTC-10:00 Hawaii',
+                'UTC+10:00 Guam'
+            ]),
+            'daylight_savings' => $this->faker->boolean(),
+
         ];
     }
 }

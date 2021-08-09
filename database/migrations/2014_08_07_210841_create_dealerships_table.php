@@ -16,13 +16,17 @@ class CreateDealershipsTable extends Migration
         Schema::create('dealerships', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('address');
+            $table->string('address1');
+            $table->string('address2')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('zip');
-            $table->string('timezone');
-            $table->string('website');
             $table->string('phone');
+            $table->string('sales_phone');
+            $table->string('fax')->nullable();
+            $table->string('website');
+            $table->string('timezone');
+            $table->boolean('daylight_savings');
             $table->timestamps();
         });
     }
